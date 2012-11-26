@@ -15,9 +15,9 @@ Migrate the database
 Get an API Key from [Filepicker.io](http://filepicker.io) and set up 
 your s3 credentials
 
-add your API Key to line 5 of app/assets/assets.js -- filepicker.setKey('YOURKEY-GOES-HERE');
+add your API Key to line 5 of app/assets/javascripts/assets.js -- filepicker.setKey('YOURKEY-GOES-HERE');
 
-remove line 2 of app/assets/assets.js --var apiKey = $("body").data('filepicker-key') --
+remove line 2 of app/assets/javascripts/assets.js --var apiKey = $("body").data('filepicker-key') --
 
 
 
