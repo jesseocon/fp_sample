@@ -1,7 +1,8 @@
 $(document).ready(function(){
+    var apiKey = $("body").data('filepicker-key')
     var postUrl = $('#upload-files').data('post-url') + "/assets"
    $('#upload-files').click(function(){
-      filepicker.setKey('A35azeyqSYC8bVWKQsHPQz');
+      filepicker.setKey(apiKey);
       getFiles(postUrl);
    }); 
 });

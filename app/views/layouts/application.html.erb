@@ -5,7 +5,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-filepicker-key="<%= ENV['FILEPICKER_KEY'] %>">
 <div class="container">
     <%= yield %>
 </div>
