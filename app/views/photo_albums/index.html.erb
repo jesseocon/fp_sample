@@ -1,0 +1,7 @@
+<div class="row">
+    <h1>Your Photo Albums</h1>
+    <div class="span8 offset2">
+        <%= render @photo_albums %>
+        <p><%= link_to 'New album', new_photo_album_path, class: 'btn btn-large btn-primary' %></p>
+    </div>
+</div>

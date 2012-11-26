@@ -1,0 +1,11 @@
+<% rurl = request.fullpath %>
+<h1>Photo album:<%= @photo_album.name %></h1>
+<p class="btn btn-large btn-primary" id="upload-files" data-post-url="<%= rurl %>">Add photos</p>
+<div class="row" id="container">
+    <% @assets.each do |asset| %>
+        <div class="span3 gridview" data-fpurl="<%= asset.fpurl %>">
+            <%= link_to image_tag(asset.fpurl), asset.fpurl, class: 'thumbnail' %>
+            <p><%= asset.fp_filename %></p>
+        </div>
+    <% end %>
+</div>

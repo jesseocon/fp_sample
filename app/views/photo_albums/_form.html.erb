@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="span8 offset2">
+        <%= form_for @photo_album do |f| %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            
+            <%= f.submit class: 'btn btn-large btn-primary' %>
+        <% end %>
+    </div>
+</div>
