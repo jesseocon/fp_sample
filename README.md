@@ -8,18 +8,21 @@ from a variety of cloud storage service providers.
 Installation
 ------------
 
-run bundle install
+Run bundle install
+
+Migrate the database
 
 Get an API Key from [Filepicker.io](http://filepicker.io) and set up 
 your s3 credentials
 
-add your API Key to the filepicker.setKey('YOUR-API-KEY') in place of the ENV['FILEPICKER_KEY'] variable
+add your API Key to line 5 of app/assets/assets.js -- filepicker.setKey('YOURKEY-GOES-HERE');
+
+remove line 2 of app/assets/assets.js --var apiKey = $("body").data('filepicker-key') --
 
 
-Example
--------------
 
-Click here for a working [demo](http://)
+
+
 
 
 
