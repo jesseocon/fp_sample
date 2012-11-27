@@ -36,7 +36,6 @@ textarea {
 }
 
 
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,10 +95,15 @@ input, textarea, select, .uneditable-input {
 }
 
 /* buttons */
-a:link, a:hover, .white-text {
-    color: white;
-    text-decoration: none;
+.white-text {
+     color: white;
+    &:hover {  
+        text-decoration: none;
+        color:white;     
+    }
 }
+
+
 
 
 

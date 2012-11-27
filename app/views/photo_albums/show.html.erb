@@ -1,5 +1,5 @@
 <% rurl = request.fullpath %>
-<h1>Photo album: <%= @photo_album.name %></h1>
+<h1><%= @photo_album.name %></h1>
 <p class="btn btn-large btn-primary" id="upload-files" data-post-url="<%= rurl %>"><i class="icon-plus-sign icon-white"></i> Add photos</p>
 <div class="row" id="container">
     <%= render 'photo_albums/asset'%>
