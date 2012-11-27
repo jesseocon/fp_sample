@@ -1,12 +1,15 @@
 $(document).ready(function(){
-    var apiKey = $("body").data('filepicker-key')
-    var postUrl = $('#upload-files').data('post-url') + "/assets"
+    var apiKey = $("body").data('filepicker-key');
+    var postUrl = $('#upload-files').data('post-url') + "/assets";
+    
    $('#upload-files').click(function(){
       filepicker.setKey(apiKey);
       getFiles(postUrl);
    }); 
 });
 
+
+// appends the newest upload to the photos container
 function addNewFileToContainer(fpUrl){
     var getUrl = $("#upload-files").data('post-url');
     $.get(getUrl, function(data){
@@ -15,15 +18,18 @@ function addNewFileToContainer(fpUrl){
     });
 }
 
-
-function createAsset(fpUrl, fpFilename, postUrl){
+// sends request to create an Asset model
+function createAsset(fpUrl, fpFilename, fpMimetype, fpIsWriteable, fpSize, postUrl){
     $.ajax({
         type: "POST", 
         url: postUrl,
         data: {
             asset: {
                 fpurl: fpUrl,
-                fp_filename: fpFilename
+                fp_filename: fpFilename,
+                fp_mimetype: fpMimetype,
+                fp_isWriteable: fpIsWriteable,
+                fp_size: fpSize
             }
         }, 
         dataType: 'json',
@@ -53,12 +59,33 @@ function getFiles(postUrl){
         {
             var fpUrl = FPFiles[i].url + "?dl=false";
             var fpFilename = FPFiles[i].filename;
-            createAsset(fpUrl, fpFilename, postUrl);
+            var fpMimetype = FPFiles[i].mimetype;
+            var fpIsWriteable = FPFiles[i].isWriteable;
+            var fpSize = FPFiles[i].size;
+            createAsset(fpUrl, fpFilename, fpMimetype, fpIsWriteable, fpSize, postUrl);
         }
-        console.log(JSON.stringify(FPFiles));
+        console.log(FPFiles);
       },
       function(FPError){
         console.log(FPError.toString());
       }
     );
 }
+
+
+function removeFpurl(fpurl){
+    $.ajax({
+       url: fpurl,
+       type: 'DELETE',
+       success: function() {
+           console.log('url was deleted');
+       } 
+    });
+}
+
+
+
+
+
+
+

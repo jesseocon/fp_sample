@@ -1,0 +1,12 @@
+var fpurl = $('.photo-delete').data('fpurl');
+$('#asset_id_<%= @asset.id %>').remove();
+$.ajax({
+    url: fpurl,
+    type: 'DELETE',
+    success: function(){
+        console.log('file was deleted');
+    }
+});
+
+
+ 

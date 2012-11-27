@@ -1,0 +1,14 @@
+<% @assets.each do |asset| %>
+    <div class="span3 gridview" data-fpurl="<%= asset.fpurl %>" id="asset_id_<%=asset.id  %>">
+        <%= link_to image_tag(asset.fpurl), asset.fpurl, class: 'thumbnail' %>
+        <p><%= asset.fp_filename %></p>
+        <p class='btn btn-danger photo-delete' data-fpurl="<%= asset.fpurl %>">
+            <i class='icon-trash icon-white'></i>
+            <%= 
+                link_to "Delete", [@photo_album, asset], method: :delete, 
+                data: { confirm: "Are you sure"}, remote: true, class: 'white-text'
+                
+            %>
+        </p>
+    </div>
+<% end %>

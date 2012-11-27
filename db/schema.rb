@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121126163726) do
+ActiveRecord::Schema.define(:version => 20121127160025) do
 
   create_table "assets", :force => true do |t|
     t.integer  "attachable_id"
@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(:version => 20121126163726) do
     t.string   "fp_filename"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.string   "fp_mimetype"
+    t.float    "fp_size"
+    t.boolean  "fp_isWriteable"
   end
 
   add_index "assets", ["attachable_id", "attachable_type"], :name => "index_assets_on_attachable_id_and_attachable_type"
